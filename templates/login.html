@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'sans-serif';
+        }
+        body {
+            background-image: url(static/Web_Images/back-signup.jpg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+            overflow: hidden;
+        }
+        .form-container {
+            background: #4CBB17;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .form-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            margin-bottom: 5px;
+            display: block;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: black;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .side-bar {
+            width: 50px;
+            height: 100vh;
+            background: linear-gradient(green, #000729);
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+        .menu {
+            width: 25px;
+            cursor: pointer;
+        }
+        .social-links img, .useful-links img {
+            width: 25px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        .bubbles img {
+            width: 50px;
+            animation: bubble 7s linear infinite;
+        }
+        .bubbles {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            position: absolute;
+            bottom: -70px;
+        }
+        @keyframes bubble {
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-90vh);
+                opacity: 0;
+            }
+        }
+        .bubbles img:nth-child(1) { animation-delay: 2s; width: 25px; }
+        .bubbles img:nth-child(2) { animation-delay: 1s; }
+        .bubbles img:nth-child(3) { animation-delay: 5s; width: 25px; }
+        .bubbles img:nth-child(4) { animation-delay: 4.5s; }
+        .bubbles img:nth-child(5) { animation-delay: 9s; }
+        .bubbles img:nth-child(6) { animation-delay: 6s; width: 20px; }
+        .bubbles img:nth-child(7) { animation-delay: 7s; width: 35px; }
+        @media (max-width: 600px) {
+            .form-container {
+                width: 80%;
+            }
+            .side-bar {
+                width: 100%;
+                height: 50px;
+                top: auto;
+                bottom: 0;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            .menu {
+                width: 20px;
+            }
+            .social-links, .useful-links {
+                width: auto;
+                position: static;
+                transform: none;
+                display: flex;
+                gap: 10px;
+            }
+            .bubbles img {
+                width: 30px;
+            }
+        }
+        @media (max-width: 400px) {
+            .form-container {
+                width: 90%;
+            }
+            .bubbles img {
+                width: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="side-bar">
+        <img src="static/Web_images/menu.png" class="menu">
+        <div class="social-links">
+            <a href="https://www.facebook.com/" target="_blank">
+                <img src="static/Web_images/fb.png">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+                <img src="static/Web_images/ig.png">
+            </a>
+            <a href="https://www.twitter.com/" target="_blank">
+                <img src="static/Web_images/tw.png">
+            </a>
+        </div>
+        <div class="useful-links">
+            <img src="static/Web_images/share.png">
+            <img src="static/Web_images/info.png">
+        </div>
+    </div>
+    <div class="bubbles">
+        <img src="static/Web_images/bubble.png">
+        <img src="static/Web_images/bubble.png">
+        <img src="static/Web_images/bubble.png">
+        <img src="static/Web_images/bubble.png">
+        <img src="static/Web_images/bubble.png">
+        <img src="static/Web_images/bubble.png">
+        <img src="static/Web_images/bubble.png">
+    </div>
+    <div class="form-container">
+        <h1>Login</h1>
+        <form method="post" action="/login">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>{{ get_flashed_messages()[0] }}</p>
+        <a href="/signup">Don't have an account? Sign up here</a>
+    </div>
+    <script>
+        // Clear form fields on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('signupForm').reset();
+        });
+    </script>
+</body>
+</html>

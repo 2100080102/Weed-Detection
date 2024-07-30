@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'sans-serif';
+        }
+        body {
+            background-image: url(static/Web_Images/upload.jpg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+            overflow: hidden;
+        }
+        .form-container {
+            background: #4CBB17;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .form-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            margin-bottom: 5px;
+            display: block;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: black;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .side-bar {
+            width: 50px;
+            height: 100vh;
+            background: linear-gradient(green, #000729);
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+        .menu {
+            width: 25px;
+            cursor: pointer;
+        }
+        .social-links img, .useful-links img {
+            width: 25px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        .bubbles img {
+            width: 50px;
+            animation: bubble 7s linear infinite;
+        }
+        .bubbles {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            position: absolute;
+            bottom: -70px;
+        }
+        @keyframes bubble {
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-90vh);
+                opacity: 0;
+            }
+        }
+        .bubbles img:nth-child(1) { animation-delay: 2s; width: 25px; }
+        .bubbles img:nth-child(2) { animation-delay: 1s; }
+        .bubbles img:nth-child(3) { animation-delay: 5s; width: 25px; }
+        .bubbles img:nth-child(4) { animation-delay: 4.5s; }
+        .bubbles img:nth-child(5) { animation-delay: 9s; }
+        .bubbles img:nth-child(6) { animation-delay: 6s; width: 20px; }
+        .bubbles img:nth-child(7) { animation-delay: 7s; width: 35px; }
+        @media (max-width: 600px) {
+            .form-container {
+                width: 80%;
+            }
+            .side-bar {
+                width: 100%;
+                height: 50px;
+                top: auto;
+                bottom: 0;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            .menu {
+                width: 20px;
+            }
+            .social-links, .useful-links {
+                width: auto;
+                position: static;
+                transform: none;
+                display: flex;
+                gap: 10px;
+            }
+            .bubbles img {
+                width: 30px;
+            }
+        }
+        @media (max-width: 400px) {
+            .form-container {
+                width: 90%;
+            }
+            .bubbles img {
+                width: 20px;
+            }
+        }
+        /* File drop area styling */
+        .file-drop-area {
+            position: relative;
+            border: 2px dashed #007bff;
+            border-radius: 8px;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .file-drop-area:hover {
+            background-color: #e9f5ff;
+        }
+        .file-drop-area input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .file-drop-area .icon {
+            font-size: 2em;
+            color: #007bff;
+        }
+        .file-drop-area .text {
+            font-size: 1em;
+            color: #007bff;
+            margin-top: 8px;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .success {
+            background-color: #4CAF50;
+            color: #4CAF50;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            border: 1px solid #4CAF50;
+        }
+
+        .error {
+            background-color: #4CAF50;
+            color: #721c24;
+            border: 1px solid #4CAF50;
+        }
+        #imagePreview {
+            margin-top: 10px;
+            display: none;
+        }
+        #imagePreview img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="side-bar">
+        <img src="static/Web_images/menu.png" class="menu">
+        <div class="social-links">
+            <a href="https://www.facebook.com/" target="_blank">
+                <img src="static/Web_images/fb.png">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+                <img src="static/Web_images/ig.png">
+            </a>
+            <a href="https://www.twitter.com/" target="_blank">
+                <img src="static/Web_images/tw.png">
+            </a>
+        </div>
+        <div class="useful-links">
+            <img src="static/Web_images/share.png">
+            <img src="static/Web_images/info.png">
+        </div>
+    </div>
+    <div class="bubbles">
+        <img src="static/Web_images/bubble.png">
+        <img src="static/Web_images/bubble.png">
+        <img src="static/Web_images/bubble.png">
+        <img src="static/Web_images/bubble.png">
+        <img src="static/Web_images/bubble.png">
+        <img src="static/Web_images/bubble.png">
+        <img src="static/Web_images/bubble.png">
+    </div>
+    <form id="uploadForm" method="post" enctype="multipart/form-data" action="/predict">
+        <div class="file-drop-area">
+            <div id="imagePreview">
+                <img id="previewImg" src="#" alt="Image Preview">
+            </div>
+            <span class="icon">📂</span>
+            <span class="text">Choose Or Drop Photos</span>
+            <input type="file" name="file" id="fileInput" accept=".jpg, .jpeg, .png" required>
+        </div>
+        <button type="submit">Detect Weed</button>
+        <div id="result"></div>
+    </form>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const imagePreview = document.getElementById('imagePreview');
+        const previewImg = document.getElementById('previewImg');
+        const form = document.getElementById('uploadForm');
+        const resultDiv = document.getElementById('result');
+
+        // Clear previous predictions and previews on page load
+        window.onload = () => {
+            fileInput.value = '';
+            imagePreview.style.display = 'none';
+            resultDiv.innerText = '';
+        };
+
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    previewImg.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+                resultDiv.innerText = '';  // Clear result when a new file is selected
+            } else {
+                imagePreview.style.display = 'none';
+                resultDiv.innerText = '';  // Clear result if no file is selected
+            }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const file = fileInput.files[0];
+            if (!file) {
+                resultDiv.innerHTML = '<span class="error">No image uploaded. Please choose an image.</span>';
+                return;
+            }
+            const formData = new FormData(form);
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                resultDiv.innerHTML = `<span class="success">Prediction: ${data.result}</span>`;
+            } catch (error) {
+                resultDiv.innerHTML = '<span class="error">Error: Failed to fetch prediction.</span>';
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
