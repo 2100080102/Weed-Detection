@@ -5,6 +5,7 @@ This project focuses on detecting weeds using a deep learning model implemented 
 - [Project Overview](#project-overview)
 - [Dataset](#dataset)
 - [About Folders](#about-folders)
+- [Usage](#usage)
 
 # **Project Overview**
 
@@ -32,6 +33,16 @@ The dataset used in this project is the DeepWeeds dataset. For demonstration pur
 `generate_secret_key.py`: Script to generate a secret key for Flask sessions.
 
 `main.py`: Script for training and evaluating the model.
+
+## **Usage**
+That's it you're just away of 3 steps now all you need to is
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Step 1:** Sign up for an account to get started.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Step 2:** Upload images of your crops and fields through our user-friendly interface.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Step 3:** Our advanced AI algorithms will analyze the images and identify any weeds present.
+
 
 ## **Note**
 This project cannot be cloned directly and run successfully due to the dataset dependency. Even if the project is downloaded and imported, it will not run properly without the complete DeepWeeds dataset. The project will function correctly only if the dataset is fully set up and available in the `dataset/` directory.
